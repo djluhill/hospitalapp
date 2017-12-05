@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous"
+        >    
+    </head>
+
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="./index.js"></script>
+        <div class="container-fluid" ng-app="HospitalsApp">
+            <div class="row" ng-controller="HospitalsController">
+                <div class="col-xs-12">
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="search-hospitals"
+                        ng-model="hospitalSearch"
+                        placeholder="Search by name or Zip Code"
+                        value="{{hospitalSearch}}"
+                    >
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Facility Number</th>
+                                <th>Name</th>
+                                <th>Zip Code</th>
+                                <th>Beds Licensed</th>
+                                <th>Beds Available</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="hospital in filteredList">
+                                <td>{{hospital.facility_number}}</td>
+                                <td>{{hospital.name}}</td>
+                                <td>{{hospital.zip_code}}</td>
+                                <td>{{hospital.bed_lic}}</td>
+                                <td>{{hospital.bed_avl}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
